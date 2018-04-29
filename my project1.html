@@ -1,0 +1,93 @@
+<div id="header"></div>
+<div id="form"></div>
+<form>
+    First Name <input type="text" name="firstName"/> </br>
+    Last Name <input type="text" name="lastName"/> </br>
+    Age <input type="text" name="age"/> </br>
+	    <input type="button" value="add" onclick="validateAndPopulate()"/>
+	    <input type="reset" value="clear"/>
+		<div id=s1></div>
+
+</form>
+
+
+<script>
+   var records=new Array();
+   function validateAndPopulate()
+   {
+	   if(validate())
+	   {
+		   populate();
+	   }
+   }
+   function validate()
+   {
+       var f1=document.forms[0];
+	   var firstName=f1.firstName;
+	   if(firstName.value.length==0)
+	   {
+		   alert("please enter first name");
+		   firstName.focus();
+		   return false;
+	   }
+	   var lastName = f1.lastName;
+	   if(lastName.value.length==0)
+	   {
+		   alert("please enter last name");
+		   lastName.focus();
+		   return false;
+	   }
+	   var age = f1.age;
+	   if(age.value.length==0)
+	   {
+		   alert("please enter age");
+		   age.focus();
+		   return false;
+	   }
+	   var record=new Array();
+	   record[0]=firstName.value;
+	   record[1]=lastName.value;
+	   record[2]=age.value;
+	   records[records.length] = record;
+	   f1.reset();
+	   return true;
+   }
+   function populate()
+   {
+	   var record;
+	  
+	   var submitStr="";
+	   var table="<table border='1'>";
+	   
+	   if(records.length ==0)
+	   {
+          table = "<h2>No records to Display</h2>";    
+	   }
+	   else
+	   {
+		   submitStr="<input type='submit' value='submit'/>"
+		    table += "<tr><th>SNO</th><th>FIRST NAME</th>";
+            table += "<th>LAST NAME</th><th>AGE</th></tr>";
+	   }
+       for (var i=0; i < records.length ; i++)
+       {
+		   record = records[i];
+		   table += "<tr>";
+		   table += "<td><a href='#' onclick=''>" + (i+1) + "</a></td>";
+		   table += "<td>" + records[0] + "</td>";
+		   table += "<td>" + records[1] + "</td>";
+		   table += "<td>" + records[2] + "</td>";
+		   table += "</tr>";
+       }
+	   table +="</table>";
+	  document.getElementById("header").innerHTML= table;
+	  document.getElementById("s1").innerHTML=  submitStr;
+	 
+	  
+   }
+   function retrieve(index)
+   {
+	   records.splice(index,1);
+   }
+    
+</script>

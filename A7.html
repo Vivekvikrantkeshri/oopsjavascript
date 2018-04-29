@@ -1,0 +1,26 @@
+<script>
+  var data = new Array;
+  function populateArray()
+  {
+	  for(var i = 0; i < 10; i++)
+	  {
+		  data[data.length] = i * 10; 
+	  }
+  }
+  function printarray()
+  {
+  for(var i = 0; i < data.length; i++)
+  {
+	  alert(data[i]);
+  }
+ }
+ function removefewelementsarrayContent()
+ {
+	 data.splice(3,4);
+ }
+
+
+  </script>
+  <input type = "button" value = "populatae array content" onclick = "populatearray()"/>
+  <input type = "button" value = "print array content" onclick = "printarray()"/>
+  <input type = "button" value = "remove few elements array content" onclick = "removeafewelementsarraycontent()"/>

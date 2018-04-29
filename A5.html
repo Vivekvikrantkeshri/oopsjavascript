@@ -1,0 +1,38 @@
+<form>
+    <table>
+	   <tr>
+	      <td>
+		     <select name="alloptions" multiple>
+			     <option value='1'>ONE</option>
+			     <option value='2'>TWO</option>
+			     <option value='3'>THREE</option>
+			     <option value='4'>FOUR</option>
+			  </select>
+		  </td>
+		  <td>
+		     <input type='button' value='>>>' onclick='transfer()'/>
+		  </td>
+		  <td>
+		      <select name="selectedoptions" multiple>
+		  </td>
+		</tr>
+	</table>
+</form>
+
+<script>
+   function transfer()
+   {
+	   var f1=document.forms[0];
+	   var src =f1.allalloptions;
+	   var dest= f1.selectedOptions;
+	   var srcOptions = src.options;
+//	   var test,value,option;
+	   for(var i=0; i < alloptions.length; i++)
+	   {
+		   if(srcOptions[i].selected)
+		   {
+			   dest.options[dest.options.length] = srcoption[1];
+		   }
+	   }
+   }
+   </script>
